@@ -24,7 +24,7 @@ input.mouseY.range = input.mouseY.end - input.mouseY.start;
 // VALORES DE SALIDA
 const output = {
     x:{
-        start: -40,
+        start: -60,
         end: 0,
         current: 0,
     },
@@ -38,9 +38,6 @@ const output = {
 //Rango de Salida
 output.x.range = output.x.end - output.x.start;
 output.y.range = output.y.end - output.y.start;
-
-
-
 
 /** EVENT LISTENER */
 const handleMouseMove = function(event){    
@@ -67,18 +64,32 @@ const handleMouseMove = function(event){
 
     // Aplicar salida a HTML
     wavesArray.forEach((wave, i)=>{
+        
+        
+        //Profundidad (determina la velocidad de cada ellemento)
+        let depth = parseFloat(wave.dataset.depth);
+        let waveOutput = {
+            x: output.x.current - (output.x.current * depth),
+            xOpposite: output.x.currentOpposite - (output.x.currentOpposite * depth),
+            y: output.y.current - (output.y.current * depth),
+            yOpposite: output.y.currentOpposite - (output.y.currentOpposite * depth),
+        };
 
+        //console.log(i, 'depth',depth)
+        
+
+        //CONTROL DE FLUJO -- COMPORTAMIENTO RESPECTO AL MOUSE.
         if(i===0){
-            wave.style.transform = 'translate('+output.x.current+'px, '+output.y.currentOpposite+'px)';
+            wave.style.transform = 'translate('+waveOutput.x+'px,'+waveOutput.yOpposite+'px)';
         }
         if(i===1){
-            wave.style.transform = 'translate('+output.x.current+'px, '+output.y.current+'px)';
+            wave.style.transform = 'translate('+waveOutput.xOpposite+'px,'+waveOutput.y+'px)';
         }
         if(i===2){
-            wave.style.transform = 'translate('+output.x.currentOpposite+'px, '+output.y.current+'px)';
+            wave.style.transform = 'translate('+waveOutput.xOpposite+'px,'+waveOutput.yOpposite+'px)';
         }
         if(i===3){
-            wave.style.transform = 'translate('+output.x.current+'px, '+output.y.current+'px)';
+            wave.style.transform = 'translate('+waveOutput.x+'px,'+waveOutput.y+'px)';
         }
     })
     //console.log('output.x.current', output.x.current);
