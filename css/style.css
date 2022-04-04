@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 16px;
+}
+html, body{
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+
+main{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr; 
+}
+
+.oculto{
+    display: none;
+}
+
+.title{
+    grid-column: 1 / 4;
+    grid-row: 1;
+
+    justify-self: center;
+    align-self: end;
+    
+    margin: -2rem;
+    
+    font-family: 'Bevan', cursive;
+    font-size: 6rem;
+    color: white;
+}
+
+.container{
+    align-self: center;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.line{
+    justify-self: center;
+    
+    height: 25rem;
+
+    margin-right: .8rem;
+
+    opacity: .5;
+}
+
+.main__selector{
+    width: 100%;
+
+    align-self: center;
+
+    display: flex;
+    justify-content: center;
+
+    border: 2px solid white;
+}
+
+.btn-login{
+    cursor: pointer;
+
+    width: 170px;
+    height: 50px;
+
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: start;
+
+    margin: 3rem 0 0 2rem;
+    
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    border-radius: 10px;
+    
+    background-color: rgba(39, 39, 43, 0.678);
+}
+.login-selector{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+}
+
+.btn-new-user{
+    cursor: pointer;
+
+
+    width: 130px;
+    height: 50px;
+    
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: end;
+    
+    margin: 8rem 5.2rem 0 0;
+    padding: 5px;
+    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+    border-radius: 10px;
+    background-color: rgba(39, 39, 43, 0.678);
+}
+.register-selector{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2.5rem;
+    color: rgb(44, 211, 72);
+}
+
+/*LOGIN*/
+#login-container{
+    position: absolute;
+
+    top: 53%;
+    left: 50%;
+
+    margin-top: -150px;
+    margin-left: -175px;
+}
+#form-login{
+    position: relative;
+    
+    height: 250px;
+    width: 350px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+
+    background-color: rgba(80, 94, 102, 0.9);
+
+    z-index: 5;
+
+    border-radius: 22px;    
+    box-shadow: 6px 6px 15px -1px rgba(0, 0, 0, 0.25);
+}
+.btn-close-login{
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 78.4px;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgb(200, 250, 200, .2);
+
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 5px;
+
+    transition: color .5s ease;
+}
+.btn-close-login:hover{
+    color: rgb(200, 250, 200, 1);
+}
+
+/*REGISTER*/
+#register-container{
+    position: absolute;
+
+    top: 58%;
+    left: 50%;
+
+    margin-top: -200px;
+    margin-left: -175px;
+}
+#form-register{
+    position: relative;
+    
+    height: 400px;
+    width: 350px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    backdrop-filter: blur(4px);
+    background-color: rgba(80, 94, 102, .9);
+
+    z-index: 6;
+
+    border-radius: 22px;    
+    box-shadow: 6px 6px 15px -1px rgba(0, 0, 0, 0.25);
+}
+.btn-close-register{
+    cursor: pointer;
+
+    position:absolute; 
+
+    bottom: 84px;
+    width: 25px;
+    height: 25px;
+
+    padding:auto;
+    
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    
+    color: rgba(80, 94, 102, .9);
+    
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+
+
+    transition: color .5s ease;
+}
+.btn-close-register:hover{
+    color: rgb(200, 250, 200, 1);
+}
+
+/* FORM INPUT STYLES*/
+.form__input, .form__button{
+    position: relative;
+
+    width: 323px;
+    height: 50px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    border:1px solid black;
+    border-radius: 14px;
+
+    background-color: rgba(81, 91, 110, 0.466);
+}
+.form-circles{
+    
+    width: 100px;
+}
+
+/*BACKGROUND*/
+#waves-container{
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    position: relative;
+
+}
+.bg__wave-1{
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    width: 120%;
+    height: calc(12.5rem * 1.1);
+    user-select: none;
+}
+.bg__wave-2{
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    width: 120%;
+    height: calc(13.75rem * 1.1);
+    user-select: none;
+}
+.bg__wave-3{
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    width: 120%;
+    height: calc(15.625rem * 1.1);
+    user-select: none;
+}
+.bg__wave-4{
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    width: 120%;
+    height: calc(18.75rem * 1.1);
+    user-select: none;
+}
