@@ -6,107 +6,104 @@ const wavesArray = Array.from(wavesCollection);
 
 
 // VALORES DE ENTRADA de: MOUSE ejes X e Y
-const input = {
+const entrada = {
     mouseX: {
-        start: 0,
-        end: window.innerWidth,
-        current: 0,
+        inicio: 0,
+        fin: window.innerWidth,
+        actual: 0,
     },
     mouseY:{
-        start: 0,
-        end: window.innerHeight,
-        current: 0,
+        inicio: 0,
+        fin: window.innerHeight,
+        actual: 0,
     }
 };
-input.mouseX.range = input.mouseX.end - input.mouseX.start;
-input.mouseY.range = input.mouseY.end - input.mouseY.start;
+entrada.mouseX.rango = entrada.mouseX.fin - entrada.mouseX.inicio;
+entrada.mouseY.rango = entrada.mouseY.fin - entrada.mouseY.inicio;
 
 // VALORES DE SALIDA
-const output = {
-    x:{
-        start: -60,
-        end: 0,
-        current: 0,
+const salida = {
+    ejeX:{
+        inicio: -20,
+        fin: 0,
+        actual: 0,
     },
-    y:{
-        start: 20,
-        end: 0,
-        current: 0,
+    ejeY:{
+        inicio: -20,
+        fin: 0,
+        actual: 0,
     },
+    escala: {
+        inicio: 1.3,
+        fin: .8,
+    }
 };
 
 //Rango de Salida
-output.x.range = output.x.end - output.x.start;
-output.y.range = output.y.end - output.y.start;
+salida.escala.rango = salida.escala.fin - salida.escala.inicio;
+salida.ejeX.rango = salida.ejeX.fin - salida.ejeX.inicio;
+salida.ejeY.rango = salida.ejeY.fin - salida.ejeY.inicio;
 
-/** EVENT LISTENER */
-const handleMouseMove = function(event){    
-    //ENTRADA
 
-    // MOUSE X input
-    input.mouseX.current = event.clientX;
-    input.mouseX.fraction = (input.mouseX.current - input.mouseX.start) / input.mouseX.range;
-    
+const mouse = {
+    x: 0,
+    y: 0,
+};
 
-    // MOUSE Y input
-    input.mouseY.current = event.clientY;
-    input.mouseY.fraction = (input.mouseY.current - input.mouseY.start) / input.mouseY.range;
-
-    // SALIDA 
-    
-    // output x
-    output.x.current = output.x.start + (input.mouseX.fraction * output.x.range);
-    output.x.currentOpposite = output.x.end - (input.mouseX.fraction * output.x.range);
-    
-    //output y
-    output.y.current = output.y.start + (input.mouseY.fraction * output.y.range);
-    output.y.currentOpposite = output.y.end - (input.mouseY.fraction * output.y.range);
-
-    // Aplicar salida a HTML
-    wavesArray.forEach((wave, i)=>{
-        
-        
-        //Profundidad (determina la velocidad de cada ellemento)
-        let depth = parseFloat(wave.dataset.depth);
-        let waveOutput = {
-            x: output.x.current - (output.x.current * depth),
-            xOpposite: output.x.currentOpposite - (output.x.currentOpposite * depth),
-            y: output.y.current - (output.y.current * depth),
-            yOpposite: output.y.currentOpposite - (output.y.currentOpposite * depth),
-        };
-
-        //console.log(i, 'depth',depth)
-        
-
-        //CONTROL DE FLUJO -- COMPORTAMIENTO RESPECTO AL MOUSE.
-        if(i===0){
-            wave.style.transform = 'translate('+waveOutput.x+'px,'+waveOutput.yOpposite+'px)';
-        }
-        if(i===1){
-            wave.style.transform = 'translate('+waveOutput.xOpposite+'px,'+waveOutput.y+'px)';
-        }
-        if(i===2){
-            wave.style.transform = 'translate('+waveOutput.xOpposite+'px,'+waveOutput.yOpposite+'px)';
-        }
-        if(i===3){
-            wave.style.transform = 'translate('+waveOutput.x+'px,'+waveOutput.y+'px)';
-        }
-    })
-    //console.log('output.x.current', output.x.current);
-    //console.log('fraccion X', input.mouseX.fraction);
-    //console.log('fraccion Y', input.mouseY.fraction);
+const actualizarEntradas = ()=>{
+    // Entrada -Mouse- eje x e y
+    entrada.mouseX.actual = mouse.x;
+    entrada.mouseX.fraccion = (entrada.mouseX.actual - entrada.mouseX.inicio) / entrada.mouseX.rango;
+    entrada.mouseY.actual = mouse.y;
+    entrada.mouseY.fraccion = (entrada.mouseY.actual - entrada.mouseY.inicio) / entrada.mouseY.rango;
 }
-window.addEventListener('mousemove', handleMouseMove); 
+
+const actualizarSalidas = ()=>{
+    // salida eje x e y
+    salida.ejeX.actual = salida.ejeX.inicio + (entrada.mouseX.fraccion * salida.ejeX.rango);
+    salida.ejeY.actual = salida.ejeY.inicio + (entrada.mouseY.fraccion * salida.ejeY.rango);
+    //salida.y.opuesto = salida.y.fin - (entrada.mouseY.fraccion * salida.y.rango);
+}
+
+const actualizarCadaElemento = ()=>{
+    wavesArray.forEach((wave, i)=>{
+        //Profundidad (determina la velocidad de cada elemento)
+        let depth = parseFloat(wave.dataset.depth );
+        let waveSalida = {
+            x: salida.ejeX.actual - (salida.ejeX.actual * depth),
+            y: salida.ejeY.actual - (salida.ejeY.actual * depth),
+            escala: salida.escala.inicio + (salida.escala.rango * depth),
+        };
+        
+        // Aplicar Valores al elemento HTML. (estilos css dinámicos);
+        wave.style.transform = 'scale('+waveSalida.escala+') translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
+    })
+}
+/** EVENT LISTENER */
+const manejarMovimientoDelMouse = function(event){    
+    // Entrada
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+    
+    actualizarEntradas();
+    actualizarSalidas();
+    actualizarCadaElemento();
+}
+
+window.addEventListener('mousemove', manejarMovimientoDelMouse); 
 
 /** Para actualizar valores al ajustar el tamaño de pantalla */
-const handleResize = ()=>{
+const manejarTamañoDePantalla = ()=>{
     // MOUSE X
-    input.mouseX.end = window.innerWidth;
-    input.mouseX.range = input.mouseX.end - input.mouseX.start;
+    entrada.mouseX.fin = window.innerWidth;
+    entrada.mouseX.rango = entrada.mouseX.fin - entrada.mouseX.inicio;
     // MOUSE Y
-    input.mouseY.end = window.innerHeight;
-    input.mouseY.range = input.mouseY.end - input.mouseY.start;
+    entrada.mouseY.fin = window.innerHeight;
+    entrada.mouseY.rango = entrada.mouseY.fin - entrada.mouseY.inicio;
 }
-window.addEventListener('resize', handleResize); 
+window.addEventListener('resize', manejarTamañoDePantalla); 
 
 
+actualizarEntradas();
+actualizarSalidas();
+actualizarCadaElemento();
