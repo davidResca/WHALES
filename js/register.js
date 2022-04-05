@@ -1,19 +1,17 @@
 const $btnNewUser = document.querySelector('#btn-new-user');
 const $btnCloseRegister = document.querySelector('#btn-close-register');
-const $btnRegisterSubmit = document.querySelector('#register-container');
+const $btnRegisterSubmit = document.querySelector('#btn-register');
 const formRegister = document.querySelector('#register-container');
 
-$btnNewUser.onclick = ()=>{
+$btnNewUser.addEventListener('click', ()=>{
     formRegister.classList.remove('oculto');
-}
+});
 
-$btnCloseRegister.onclick = function(){
+$btnCloseRegister.addEventListener('click', ()=>{
     formRegister.classList.add('oculto');
-}
+});
 
-$btnRegisterSubmit.onclick = ()=>{
-    return false;
-}
+
 
 /* 
 const $inputName = document.querySelector('#register-username');
