@@ -5,19 +5,21 @@ const wavesArray = Array.from(wavesCollection);
 //console.log('wavesCollection', wavesCollection);
 
 
-// VALORES DE ENTRADA de: MOUSE ejes X e Y
+// VALORES DE ENTRADA: MOUSE ejes X e Y
 const entrada = {
     mouseX: {
         inicio: 0,
         fin: window.innerWidth,
-        actual: 0,
+        actual: 0,  // Actualizo el valor con el eventListener 'mousemove' -linea 70-
     },
     mouseY:{
         inicio: 0,
         fin: window.innerHeight,
-        actual: 0,
+        actual: 0,// Actualizo el valor con el eventListener 'mousemove' -linea 70-
     }
 };
+
+//agrego atributo rango (para almacenar la posicion del mouse más adelante)
 entrada.mouseX.rango = entrada.mouseX.fin - entrada.mouseX.inicio;
 entrada.mouseY.rango = entrada.mouseY.fin - entrada.mouseY.inicio;
 
@@ -40,15 +42,33 @@ const salida = {
 };
 
 //Rango de Salida
+
+//agrega propiedad rango en objeto salida.escala - CALCULA EL RANGO DE TAMAÑO.
 salida.escala.rango = salida.escala.fin - salida.escala.inicio;
+
+// rango de salida en eje X e Y
 salida.ejeX.rango = salida.ejeX.fin - salida.ejeX.inicio;
 salida.ejeY.rango = salida.ejeY.fin - salida.ejeY.inicio;
-
 
 const mouse = {
     x: 0,
     y: 0,
 };
+
+/* eventListener + llamado a funciones. Conecta entradas Salidas y actualiza los valores de los elementos*/
+const manejarMovimientoDelMouse = (event)=>{    
+
+    mouse.x = event.clientX; //clientX => https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
+    mouse.y = event.clientY; //clientY => https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY
+    
+    actualizarEntradas();
+    actualizarSalidas();
+    actualizarCadaElemento();
+}
+/* Creo el eventListener y llamo a la funcion*/
+window.addEventListener('mousemove', manejarMovimientoDelMouse); 
+
+/*Esta funcion se encargará de actualizar los valores de los atributos del objeto entrada*/
 
 const actualizarEntradas = ()=>{
     // Entrada -Mouse- eje x e y
@@ -79,18 +99,6 @@ const actualizarCadaElemento = ()=>{
         wave.style.transform = 'scale('+waveSalida.escala+') translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
     })
 }
-/** EVENT LISTENER */
-const manejarMovimientoDelMouse = function(event){    
-    // Entrada
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-    
-    actualizarEntradas();
-    actualizarSalidas();
-    actualizarCadaElemento();
-}
-
-window.addEventListener('mousemove', manejarMovimientoDelMouse); 
 
 /** Para actualizar valores al ajustar el tamaño de pantalla */
 const manejarTamañoDePantalla = ()=>{
