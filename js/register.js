@@ -13,9 +13,11 @@ $btnCloseRegister.addEventListener('click', ()=>{
 
 
 
-/* const $inputName = document.querySelector('#register-username');
+/* 
+const $inputName = document.querySelector('#register-username');
 const $inputEmail = document.querySelector('#register-email');
 const $inputPassword = document.querySelector('#register-password');
-const $inputConfirmPassword = document.querySelector('#confirm-password'); */
+const $inputConfirmPassword = document.querySelector('#confirm-password'); 
+*/
 
 
