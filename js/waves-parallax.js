@@ -1,21 +1,18 @@
 // Obtener elementos HTML
 const wavesCollection = document.querySelectorAll('.parallax-wave');
 const wavesArray = Array.from(wavesCollection);
-//console.log('wavesArray', wavesArray);
-//console.log('wavesCollection', wavesCollection);
-
 
 // VALORES DE ENTRADA: MOUSE ejes X e Y
 const entrada = {
     mouseX: {
         inicio: 0,
         fin: window.innerWidth,
-        actual: 0,  // Actualizo el valor con el eventListener 'mousemove' -linea 70-
+        actual: 0,  // Actualizo el valor con el eventListener 'mousemove' -linea 65-
     },
     mouseY:{
         inicio: 0,
         fin: window.innerHeight,
-        actual: 0,// Actualizo el valor con el eventListener 'mousemove' -linea 70-
+        actual: 0,// Actualizo el valor con el eventListener 'mousemove' -linea 65-
     }
 };
 
@@ -36,19 +33,18 @@ const salida = {
         actual: 0,
     },
     escala: {
-        inicio: 1.3,
+        inicio: 1.2,
         fin: .8,
     }
 };
 
 //Rango de Salida
-
 //agrega propiedad rango en objeto salida.escala - CALCULA EL RANGO DE TAMAÑO.
 salida.escala.rango = salida.escala.fin - salida.escala.inicio;
 
 // rango de salida en eje X e Y
-salida.ejeX.rango = salida.ejeX.fin - salida.ejeX.inicio;
-salida.ejeY.rango = salida.ejeY.fin - salida.ejeY.inicio;
+salida.ejeX.rango = (salida.ejeX.fin - salida.ejeX.inicio)*2;
+salida.ejeY.rango = (salida.ejeY.fin - salida.ejeY.inicio)*1.5;
 
 const mouse = {
     x: 0,
@@ -57,7 +53,6 @@ const mouse = {
 
 /* eventListener + llamado a funciones. Conecta entradas Salidas y actualiza los valores de los elementos*/
 const manejarMovimientoDelMouse = (event)=>{    
-
     mouse.x = event.clientX; //clientX => https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
     mouse.y = event.clientY; //clientY => https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY
     
@@ -66,9 +61,7 @@ const manejarMovimientoDelMouse = (event)=>{
     actualizarCadaElemento();
 }
 /* Creo el eventListener y llamo a la funcion*/
-window.addEventListener('mousemove', manejarMovimientoDelMouse); 
-
-/*Esta funcion se encargará de actualizar los valores de los atributos del objeto entrada*/
+window.addEventListener('mousemove', manejarMovimientoDelMouse);
 
 const actualizarEntradas = ()=>{
     // Entrada -Mouse- eje x e y
@@ -77,14 +70,12 @@ const actualizarEntradas = ()=>{
     entrada.mouseY.actual = mouse.y;
     entrada.mouseY.fraccion = (entrada.mouseY.actual - entrada.mouseY.inicio) / entrada.mouseY.rango;
 }
-
 const actualizarSalidas = ()=>{
     // salida eje x e y
     salida.ejeX.actual = salida.ejeX.inicio + (entrada.mouseX.fraccion * salida.ejeX.rango);
     salida.ejeY.actual = salida.ejeY.inicio + (entrada.mouseY.fraccion * salida.ejeY.rango);
     //salida.y.opuesto = salida.y.fin - (entrada.mouseY.fraccion * salida.y.rango);
 }
-
 const actualizarCadaElemento = ()=>{
     wavesArray.forEach((wave, i)=>{
         //Profundidad (determina la velocidad de cada elemento)
@@ -99,18 +90,6 @@ const actualizarCadaElemento = ()=>{
         wave.style.transform = 'scale('+waveSalida.escala+') translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
     })
 }
-
-/** Para actualizar valores al ajustar el tamaño de pantalla */
-const manejarTamañoDePantalla = ()=>{
-    // MOUSE X
-    entrada.mouseX.fin = window.innerWidth;
-    entrada.mouseX.rango = entrada.mouseX.fin - entrada.mouseX.inicio;
-    // MOUSE Y
-    entrada.mouseY.fin = window.innerHeight;
-    entrada.mouseY.rango = entrada.mouseY.fin - entrada.mouseY.inicio;
-}
-window.addEventListener('resize', manejarTamañoDePantalla); 
-
 
 actualizarEntradas();
 actualizarSalidas();
