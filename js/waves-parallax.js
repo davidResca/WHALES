@@ -43,8 +43,8 @@ const salida = {
 salida.escala.rango = salida.escala.fin - salida.escala.inicio;
 
 // rango de salida en eje X e Y
-salida.ejeX.rango = (salida.ejeX.fin - salida.ejeX.inicio)*2;
-salida.ejeY.rango = (salida.ejeY.fin - salida.ejeY.inicio)*1.5;
+salida.ejeX.rango = (salida.ejeX.fin - salida.ejeX.inicio);
+salida.ejeY.rango = (salida.ejeY.fin - salida.ejeY.inicio);
 
 const mouse = {
     x: 0,

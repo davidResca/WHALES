@@ -8,8 +8,8 @@ const manejarTamañoDePantalla = ()=>{
     entrada.mouseY.rango = entrada.mouseY.fin - entrada.mouseY.inicio;
     
     //scroll
-    input.scrollY.end = html.scrollHeight - window.innerHeight;
-    scrollInput.scrollY.range = scrollInput.scrollY.end - scrollInput.scrollY.start;
+    /* input.scrollY.end = html.scrollHeight - window.innerHeight;
+    scrollInput.scrollY.range = scrollInput.scrollY.end - scrollInput.scrollY.start; */
 
 }
 

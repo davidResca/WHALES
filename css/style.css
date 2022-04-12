@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Bevan&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;1,300;1,500&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 :root{
     font-size: 16px;
 }
 html, body{
     height: 100%;
     background-color: black;
+    scroll-behavior: smooth;
 }
 
 main{
@@ -40,7 +43,7 @@ main{
     
     font-family: 'Bevan', cursive;
     font-size: 6rem;
-    color: white;
+    color: azure;
 }
 
 .container{
@@ -66,42 +69,41 @@ main{
 
 .btn-login{
     cursor: pointer;
+    z-index: 6;
 
-    width: 170px;
-    height: 50px;
 
-    grid-column: 2 / 3;
+    grid-column: 1 / 1;
     grid-row: 2 / 3;
-    justify-self: start;
+    justify-self: end;
 
     margin: 1.3rem 0 0 1.2rem;
     
-
     display: flex;
     justify-content: center;
     align-content: center;
 
     border-radius: 10px;
-    
-    background-color: rgba(39, 39, 43, 0.678);
+    text-shadow: 4px 4px 4px black;
 }
 .login-selector{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 3rem;
-    color: rgb(255, 255, 255);
+    color: azure;
+    text-decoration: underline;
 }
 
 .btn-new-user{
+    z-index: 6;
     cursor: pointer;
 
     width: 130px;
     height: 50px;
     
-    grid-column: 2 / 3;
+    grid-column: 3 / 3;
     grid-row: 2 / 3;
-    justify-self: end;
+    justify-self: start;
     
-    margin: 4.5rem 4.5rem 0 0;
+    margin: 1rem 0 0 1.2rem;
     padding: 5px;
     
     display: flex;
@@ -109,12 +111,13 @@ main{
     align-content: center;
     
     border-radius: 10px;
-    background-color: rgba(39, 39, 43, 0.678);
+    text-shadow: 4px 4px 4px black;
 }
 .register-selector{
-    font-family: 'Varela Round', sans-serif;
-    font-size: 2.5rem;
-    color: rgb(44, 211, 72);
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    color: rgb(100, 211, 72);
+    text-decoration: underline;
 }
 
 /*LOGIN*/
@@ -274,7 +277,7 @@ main{
     filter: drop-shadow(8px -8px 2px rgba(0, 0, 0, 0.2));
 }
 .bg__wave-2{
-z-index: 4;
+    z-index: 4;
     position: absolute;
     bottom: 0;
     width: 120%;
@@ -315,7 +318,15 @@ section{
     height:100vh;
 }
 
-.sectionpink{
+.galleries{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(243, 181, 237, 1) 0%, rgba(243, 181, 237, .8) 25%, rgba(243, 181, 237, .6) 100%,rgba(243, 181, 237, .4) 70%);
+}
 
-    background-color: rgba(243, 182, 237, 1)
+
+
+.wave-top{
+    filter: blur(20px);
 }

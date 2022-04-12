@@ -4,18 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b4fc7efcd0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/navstyle.css"> -->
+    <link rel="stylesheet" href="./css/navstyleTEST.css">
+
     <title>WHALES</title>
 </head>
 <body>
+    <header>
+        <nav class="nav">
+            <div id="nav-button" class="nav__burger">
+                <i class="fa-solid fa-minus nav__burger--top"></i>
+                <i class="fa-solid fa-minus nav__burger--bottom"></i>
+            </div>
+            <div id="nav" class="navlist-container">
+                <ul id="nav-list" class="nav__list">
+                    <li class="nav__list--item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav__list--item"><a class="nav-link" href="./pages/catalog.html">Catalog</a></li>
+                    <li class="nav__list--item"><a class="nav-link" href="./pages/galleries.html">Galleries</a></li>
+                    <li class="nav__list--item"><a class="nav-link" href="./pages/about.html">About</a></li>
+                    <li class="nav__list--item"><a class="nav-link" href="./pages/contact.html">Contact</a></li>            
+                    <li class="nav__list--item"><a class="nav-link" href="./pages/legal.html">Legal</a></li>            
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <main>
         <h1 class="title">WHALES</h1>
         <div class="container">
             <img class="line" src="./assets/PNG/Line 2.png" alt="line selector">
         </div>
-        <!-- BOTON LOGIN -->
+        <!-- <!-- BOTON LOGIN -->
         <div id="btn-login" class="btn-login">
-            <div class="login-selector">LOGIN</div>
+            <p class="login-selector">LOGIN</p>
         </div>
         <!-- BOTON REGISTER -->
         <div id="btn-new-user" class="btn-new-user">
@@ -51,17 +74,33 @@
             <img src="./assets/PNG/Waves--2.png" alt="smoothie waves" id="wave5" class="bg__wave-5 parallax-wave" data-depth=".95">
         </div>
     </main>
-    <section class="sectionpink"></section>
-    <section></section>
-    <section class="sectionpink"></section>
-    <section></section>
+    <section class="galleries">
+        <article class="galleries__item">
+            
+        </article>
 
 
+    </section>
+    <section>
 
+    </section>
+    <section class="sectionpink">
+
+    </section>
+    <section>
+
+    </section>
+
+
+    <!-- Formularios de registro y login -->
     <script src="./js/login.js"></script>
     <script src="./js/register.js"></script>
+
+    <!-- Parallax & scroll script -->
     <script src="./js/waves-parallax.js"></script>
-    <!-- <script src="./js/scroll.js"></script> -->
     <script src="./js/script-screenresize.js"></script>
+
+    <!-- script Navbar -->
+    <script src="./js/navbar.js"></script>
 </body>
 </html>
