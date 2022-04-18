@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b4fc7efcd0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- <link rel="stylesheet" href="./css/navstyle.css"> -->
-    <link rel="stylesheet" href="./css/navstyleTEST.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/gallery.css">
+    
 
     <title>WHALES</title>
 </head>
@@ -22,27 +24,32 @@
                 <ul id="nav-list" class="nav__list">
                     <li class="nav__list--item"><a class="nav-link" href="./index.html">Home</a></li>
                     <li class="nav__list--item"><a class="nav-link" href="./pages/catalog.html">Catalog</a></li>
-                    <li class="nav__list--item"><a class="nav-link" href="./pages/galleries.html">Galleries</a></li>
+                    <li class="nav__list--item"><a class="nav-link" href="./pages/galleries.html">Gallery</a></li>
                     <li class="nav__list--item"><a class="nav-link" href="./pages/about.html">About</a></li>
                     <li class="nav__list--item"><a class="nav-link" href="./pages/contact.html">Contact</a></li>            
                     <li class="nav__list--item"><a class="nav-link" href="./pages/legal.html">Legal</a></li>            
                 </ul>
             </div>
         </nav>
-    </header>
 
+    </header>
+    <!-- MAIN -->
     <main>
-        <h1 class="title">WHALES</h1>
-        <div class="container">
-            <img class="line" src="./assets/PNG/Line 2.png" alt="line selector">
+        <h1 class="main-title parallax-wave" data-depth="1.2">WHALES</h1>
+        <div id="btn-darkmode" class="btn-darkmode">
+            <svg class="btn-darkmodeSelectGreen" width="48" height="30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.065.015c23.5-.5 2.148 11.861 12.149 16.861 10 5 20.5 12.5 15.5 12.5h-23c-8.06 0-12.785 1.1-19.285-4.736S-4.435.515 19.065.015Z" fill="currentColor"/></svg>
+            <svg class="btn-darkmodeSelectPink" width="56" height="29" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.3 28.987c6.502-.01 14.373-.024 14.592-.043a14.905 14.905 0 0 0 9.144-4.197A14.396 14.396 0 0 0 55.368 14.5a14.214 14.214 0 0 0-1.107-5.56 14.422 14.422 0 0 0-3.199-4.712 14.721 14.721 0 0 0-4.798-3.142A14.92 14.92 0 0 0 41.892.05C41.464.015 19.024-.002 18.593 0H0c12.015.05 10.52 3.984 8.898 8.253-1.207 3.177-2.484 6.54 1.684 8.623 8.643 4.322 17.66 10.511 16.718 12.111Z" fill="currentColor"/></svg>
+            <svg class="btn-darkmodeFix" width="79" height="33" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M77.756 10.175A16.34 16.34 0 0 1 79 16.5a16.478 16.478 0 0 1-4.871 11.659A16.682 16.682 0 0 1 62.399 33H16.6a16.653 16.653 0 0 1-11.739-4.833A16.45 16.45 0 0 1 0 16.5c0-4.376 1.75-8.573 4.862-11.667A16.653 16.653 0 0 1 16.602 0h45.796c2.183-.01 4.346.41 6.365 1.237a16.537 16.537 0 0 1 5.396 3.575 16.423 16.423 0 0 1 3.597 5.363ZM6.89 26.215a13.973 13.973 0 0 0 9.711 4.13l21.54-.024 24.257.024a13.973 13.973 0 0 0 9.712-4.13c8.477-8.557 2.08-23.378-9.712-23.56H16.601a13.973 13.973 0 0 0-9.71 4.13c-5.267 5.316-5.267 14.114 0 19.43Z" fill="currentColor"/></svg>
         </div>
-        <!-- <!-- BOTON LOGIN -->
-        <div id="btn-login" class="btn-login">
-            <p class="login-selector">LOGIN</p>
-        </div>
-        <!-- BOTON REGISTER -->
-        <div id="btn-new-user" class="btn-new-user">
-            <div class="register-selector">NEW?</div>
+        <div class="main-btn-container">
+            <!-- <!-- BOTON LOGIN -->
+            <div id="btn-login" class="btn-login parallax-wave" data-depth=".8">
+                <p class="login-selector">LOGIN</p>
+            </div>
+            <!-- BOTON REGISTER -->
+            <div id="btn-new-user" class="btn-new-user parallax-wave" data-depth=".9">
+                <div class="register-selector">NEW?</div>
+            </div>
         </div>
         <!-- LOGIN CONTAINER -->
         <div id="login-container" class="login-container oculto">
@@ -54,53 +61,58 @@
                 <button type="submit" id="btn-login" class="form__button">enter</button>
             </form>
         </div>
+        
         <!-- REGISTER CONTAINER -->
         <div id="register-container" class="register-container oculto">
             <form id="form-register">
-                <input type="text" placeholder="enter name" id="register-username" class="form__input" required>
-                <input type="email" placeholder="enter mail" id="register-email" class="form__input" required>
-                <input type="password" placeholder="enter pass" id="register-password" class="form__input" required>
-                <input type="password" placeholder="confirm pass" id="confirm-password" class="form__input" required>
+                <input name="userName" type="text" placeholder="enter name" id="register-username" class="form__input">
+                <input name="email" type="email" placeholder="enter mail" id="register-email" class="form__input">
+                <input name="password" type="password" placeholder="enter pass" id="register-password" class="form__input">
+                <input name="confirm-password" type="password" placeholder="confirm pass" id="confirm-password" class="form__input">
                 <div id="btn-close-register" class="btn-close-register"><p>x</p></div>
                 <img src="./assets/PNG/loginRegister/form-circles-fengShui.png" alt="random stuff circles" class="form-circles">
                 <button type="submit" id="btn-register" class="form__button">register</button>
             </form>
         </div>
+
+        <!-- WAVES -->
         <div id="waves-container" class="waves-container">
-            <img src="./assets/PNG/Waves--1.png" alt="smoothie waves" id="wave1" class="bg__wave-1 parallax-wave" data-depth="-.5">
+            <!-- <img src="./assets/PNG/Waves--1.png" alt="smoothie waves" id="wave1" class="bg__wave-1 parallax-wave" data-depth="-.5">
             <img src="./assets/PNG/Waves--2.png" alt="smoothie waves" id="wave2" class="bg__wave-2 parallax-wave" data-depth=".4">
             <img src="./assets/PNG/Waves--3.png" alt="smoothie waves" id="wave3" class="bg__wave-3 parallax-wave" data-depth="0.5">
-            <img src="./assets/PNG/Waves--4.png" alt="smoothie waves" id="wave4" class="bg__wave-4 parallax-wave" data-depth="0.7">
-            <img src="./assets/PNG/Waves--2.png" alt="smoothie waves" id="wave5" class="bg__wave-5 parallax-wave" data-depth=".95">
+            <img src="./assets/PNG/Waves--4.png" alt="smoothie waves" id="wave4" class="bg__wave-4 parallax-wave" data-depth="0.7"> -->
+            <svg id="wave5" class="bg__wave-5 parallax-wave" data-depth="0" width="1568" height="515" viewBox="0 0 1568 515" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m1653 0-73 75.663c-73 74.444-220 224.55-366 203.804C1067 257.5 921 64.68 774 64.68c-146 0-292 192.82-439 268.483-146 74.444-293 31.73-366 9.764l-73-20.747V515h1757V0Z" fill="currentColor"/></svg>
+        
+        
+        </div>
+        <div class="bg-wave-container">
         </div>
     </main>
-    <section class="galleries">
-        <article class="galleries__item">
-            
-        </article>
-
-
-    </section>
-    <section>
-
-    </section>
-    <section class="sectionpink">
-
-    </section>
-    <section>
+    <!-- GALLERY -->
+    <section id="product-container" class="product-container">
 
     </section>
 
 
+
+
+    <!--//////////////SCRIPTS ZONE//////////////-->
     <!-- Formularios de registro y login -->
-    <script src="./js/login.js"></script>
-    <script src="./js/register.js"></script>
 
-    <!-- Parallax & scroll script -->
-    <script src="./js/waves-parallax.js"></script>
-    <script src="./js/script-screenresize.js"></script>
-
+    <!-- PRODUCT DATA -->
+    <script src="./js/productData.js"></script>
     <!-- script Navbar -->
     <script src="./js/navbar.js"></script>
+    <!-- Gallery Script & CARRITO-->
+    <script src="./js/gallery.js"></script>
+
+    <!-- USER DATA -->
+    <script src="./js/userData.js"></script>
+    
+    <!-- "DARKMODE" -->
+    <script src="./js/darkMode.js"></script>
+    
+    <!-- Parallax & scroll script -->
+    <script src="./js/waves-parallax.js"></script>
 </body>
 </html>

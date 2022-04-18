@@ -1,3 +1,6 @@
+
+
+
 // Obtener elementos HTML
 const wavesCollection = document.querySelectorAll('.parallax-wave');
 const wavesArray = Array.from(wavesCollection);
@@ -87,10 +90,30 @@ const actualizarCadaElemento = ()=>{
         };
         
         // Aplicar Valores al elemento HTML. (estilos css dinámicos);
-        wave.style.transform = 'scale('+waveSalida.escala+') translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
+        wave.style.transform = /* 'scale('+waveSalida.escala+') */ 'translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
+    
     })
+
 }
 
 actualizarEntradas();
 actualizarSalidas();
 actualizarCadaElemento();
+
+
+/** Para actualizar valores al ajustar el tamaño de pantalla */
+const manejarTamañoDePantalla = ()=>{
+    // MOUSE X
+    entrada.mouseX.fin = window.innerWidth;
+    entrada.mouseX.rango = entrada.mouseX.fin - entrada.mouseX.inicio;
+    // MOUSE Y
+    entrada.mouseY.fin = window.innerHeight;
+    entrada.mouseY.rango = entrada.mouseY.fin - entrada.mouseY.inicio;
+    
+    //scroll
+    /* input.scrollY.end = html.scrollHeight - window.innerHeight;
+    scrollInput.scrollY.range = scrollInput.scrollY.end - scrollInput.scrollY.start; */
+
+}
+
+window.addEventListener('resize', manejarTamañoDePantalla); 

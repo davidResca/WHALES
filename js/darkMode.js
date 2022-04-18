@@ -1,0 +1,66 @@
+const $title = document.querySelector('.main-title');
+const $bgWave = document.querySelector('#wave5');
+const $darkmodeSelectPink = document.querySelector('.btn-darkmodeSelectPink');
+const $darkmodeSelectGreen = document.querySelector('.btn-darkmodeSelectGreen');
+const $main = document.querySelector('main');
+const $btnLoginColor = document.querySelector('.login-selector');
+const $burgerColor = document.querySelector('.nav__burger');
+const $darkmodeContainerFix = document.querySelector('.btn-darkmodeFix')
+const $navLinks = document.querySelectorAll('.nav-link');
+
+const $btnDarkMode = document.querySelector('#btn-darkmode');
+
+
+function darkMode(){
+    $title.style.color = 'black';
+    $bgWave.style.color = 'black';
+    $btnLoginColor.style.color = '#EB67B6';
+    $main.style.backgroundColor = 'white';
+    $burgerColor.style.color = 'black';
+    $darkmodeSelectPink.style.color = '#00FF85';
+    $darkmodeSelectGreen.style.color = 'black';
+    $darkmodeContainerFix.style.color = 'black';
+    
+    $navLinks.forEach((element)=>{
+        element.style.color = 'rgba(18, 12, 33, .8)';
+    })
+
+    return "dark";
+}
+
+function lightMode(){
+    $title.style.color = 'azure';
+    $bgWave.style.color = '#EB67B6';
+    $btnLoginColor.style.color = 'azure';
+    $main.style.backgroundColor = 'rgba(18, 12, 33, .8)';
+    $burgerColor.style.color = 'azure';
+    $darkmodeSelectPink.style.color = '#EB67B6';
+    $darkmodeSelectGreen.style.color = '#00FF85';
+    $darkmodeContainerFix.style.color = '#fff';
+
+    $navLinks.forEach((element)=>{
+        element.style.color = 'azure';
+    })
+
+    return "light";
+}
+
+let color = localStorage.getItem('color');
+
+if(!color){
+    color = lightMode();
+} else if(color==='light'){
+    lightMode();
+} else if(color==='dark'){
+    darkMode();
+}
+
+$btnDarkMode.addEventListener('click', ()=>{
+
+    if(color === "light"){
+        color = darkMode();
+    } else {
+        color = lightMode();
+    }
+    localStorage.setItem('color', color);
+});
