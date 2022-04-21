@@ -33,22 +33,24 @@ const mostrarArtwork = ()=>{
 mostrarArtwork();
 
 /* CARRITO */
+const carritoArray = [];
 
 /* verificar stock y agregar productos a carrito */
 const verificarStockProducto = (element)=>{
     const {stock} = element;
-    console.log(stock);
     (stock > 0) ? agregarProductoAlCarrito(element) : false;
+    console.log(stock);
 }
+
 function agregarProductoAlCarrito(element){
     carritoArray.push(element);
     element.stock = element.stock-1;
-    localStorage.setItem('carro', JSON.stringify(carro));
+    localStorage.setItem('carro', JSON.stringify(carritoArray));
+    /* console.log(carritoArray) */
 }
 
 /* inyectar carrito */
 
-const carritoArray = [];
 
 const $btnCarrito = document.querySelector('#btn-cart');
 
@@ -57,15 +59,13 @@ $btnCarrito.addEventListener('click', ()=>{
 })
 
 const crearCarrito = ()=>{
-    
-    carro.forEach((element)=>{
+    carritoArray.forEach((element)=>{
+
         imprimirCarrito();
     });
 };
 
-totalCarrito = carrito.reduce((acc, el) => acc + el, 0);
-console.log(totalCarrito);
-
+/* 
 const imprimirCarrito = (carro, element)=>{
     carro = JSON.parse(localStorage.getItem('carrito'));
 
@@ -86,4 +86,4 @@ const imprimirCarrito = (carro, element)=>{
 
 function suma(a, b){
     a+b;
-}
+} */ 

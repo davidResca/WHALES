@@ -103,3 +103,8 @@
 .buy:hover{
     color: rgb(121, 241, 121);
 }
+
+
+#btn-buy{
+    cursor: pointer;
+}
