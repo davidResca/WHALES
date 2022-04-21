@@ -1,11 +1,16 @@
 const productContainer = document.querySelector('#product-container');
 
 /* TARJETAS DE PRODUCTOS */
-
-const construirCard = (productCard, element)=>{
+const mostrarProductos = ()=>{
+    productos.forEach((element)=>{
+        const productCard = document.createElement('article');
+        crearCard(productCard, element);
+    });
+};
+const crearCard = (productCard, element)=>{
     productCard.setAttribute('class', 'product-card');
     productCard.innerHTML =`<div>
-                                <img  class="prod-img" width="150px" src="${element?.img}" alt="${element.artworkName}">
+                                <img class="prod-img" width="150px" src="${element?.img}" alt="${element.artworkName}"/>
                             </div>
                             <div class="prod-description">
                                 <h5 class="artwork-name">${element?.artworkName}</h5>
@@ -19,18 +24,13 @@ const construirCard = (productCard, element)=>{
 }
 const agregarEventoACard = (productCard, element)=>{
     productCard.addEventListener('click', ()=>{
-        /* console.log(element?.id); */
+        //console.log(element?.id);
         verificarStockProducto(element);
     })
 }
-const mostrarArtwork = ()=>{
-    productos.forEach((element)=>{
-        const productCard = document.createElement('article');
-        construirCard(productCard, element);
-    });
-};
 
-mostrarArtwork();
+
+mostrarProductos();
 
 /* CARRITO */
 const carritoArray = [];
@@ -46,44 +46,40 @@ function agregarProductoAlCarrito(element){
     carritoArray.push(element);
     element.stock = element.stock-1;
     localStorage.setItem('carro', JSON.stringify(carritoArray));
-    /* console.log(carritoArray) */
 }
 
-/* inyectar carrito */
 
 
+// VER CARRO
+
+
+const menuCarrito = document.querySelector('#carrito-menu');
 const $btnCarrito = document.querySelector('#btn-cart');
 
-$btnCarrito.addEventListener('click', ()=>{
-    crearCarrito();
-})
 
 const crearCarrito = ()=>{
-    carritoArray.forEach((element)=>{
-
-        imprimirCarrito();
+    const carroLocal = JSON.parse(localStorage.getItem('carro'));
+    //console.log(carroLocal);
+    carroLocal.forEach((element)=>{
+        construirCarrito(element);
     });
 };
+const construirCarrito = (element)=>{
+    const productoEnCarro = document.createElement('div');
+    productoEnCarro.setAttribute('class', 'prodEnCarro');
+    productoEnCarro.innerHTML =`<img class="carro-img" src="${element?.img}" alt="${element.artworkName}"/>
+                                <p class="carro-titulo">${element.artworkName}</p>
+                                <p class="carro-autor">${element.authorName}</p>
+                                <p class="carro-cantidad">cantidad</p>
+                                <p class="carro-precio">${element.price}</p>`
+    menuCarrito.appendChild(productoEnCarro);
+};
+crearCarrito();
 
-/* 
-const imprimirCarrito = (carro, element)=>{
-    carro = JSON.parse(localStorage.getItem('carrito'));
+$btnCarrito.addEventListener('click', ()=>{
+    mostrarCarrito();
+})
 
-    const $carritoPopUp = document.querySelector('#carrito-popup');
-
-    $carritoPopUp.setAttribute('class', 'carrito');
-
-    $carritoPopUp.innerHTML =`<div>
-                                    <img class="carrito-img" width="50px" src="${element?.img}" alt="${element.artworkName}">
-                                </div>
-                                <div class="prod-description">
-                                    <p class = "precio-carrito">${element?.price}</p>
-                                    <p class = "total-carrito">${totalCarrito}</p>
-                                </div>`;
-
-    carritoContainer.appendChild(carritoPopUp);
+function mostrarCarrito(){
+    menuCarrito.classList.toggle('oculto');
 }
-
-function suma(a, b){
-    a+b;
-} */ 

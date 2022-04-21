@@ -1,3 +1,32 @@
-#carrito-popup{
-    position: absolute;
+
+.prodEnCarro{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 1rem;
+    padding: 5px;
 }
+
+.carro-img{
+    width: 5rem;
+    max-height: 5rem;
+    object-fit: fill;
+}
+#carrito-menu{
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    background-color: black;
+    padding: 2rem;
+    overflow-y: scroll;
+}
+
+/*
+g class="carro-img" s
+class="carro-titulo">
+class="carro-autor">$
+class="carro-cantidad
+class="carro-precio">
+
+*/
