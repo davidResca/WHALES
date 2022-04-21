@@ -1,6 +1,3 @@
-
-
-
 // Obtener elementos HTML
 const wavesCollection = document.querySelectorAll('.parallax-wave');
 const wavesArray = Array.from(wavesCollection);

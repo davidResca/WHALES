@@ -19,16 +19,15 @@ $btnCloseRegister.addEventListener('click', ()=>{
 /**--------------CONTROL DE FORMULARIO-----------------*/
 
 /**FORMULARIO */
-const $regForm = document.querySelector('#form-register');
-
+/* const $regForm = document.querySelector('#form-register'); */
 /**INPUTS */
-const userName = $regForm.userName.value;
+/* const userName = $regForm.userName.value;
 const email = $regForm.email.value;
 const password = $regForm.password.value;
 const confirmPassword = $regForm['confirm-password'].value;
-console.log(userName);
-
+ */
 /**VALIDACIONES*/
+/* 
 function validarFormularioLleno(){
     if(!userName || !email || !password || !confirmPassword){
         return "Debes completar todos los campos";
@@ -49,7 +48,7 @@ function validarNombreUsuario(){
 $btnRegisterSubmit.addEventListener('click', ()=>{
     validarNombre();
 })
-
+*/
 
 
 

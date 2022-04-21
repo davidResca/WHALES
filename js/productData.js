@@ -5,6 +5,7 @@ const productos = [
         artworkName: 'Getjide', 
         author: 'Unordered List', 
         price:`${1.300} ${"$"}`,
+        stock: 5,
     },
     {
         id:2,
@@ -12,13 +13,15 @@ const productos = [
         artworkName: 'Ferrysh Head', 
         author: 'Michael Lanalien', 
         price:`${200} ${"$"}`,
+        stock: 1,
     },
     {
         id:3,
         img: "https://imagizer.imageshack.com/v2/655x655q90/922/dcnMpU.png", 
-        artworkName: 'The Boy Who Cried Wolf', 
+        artworkName: 'The Boy Who Cried', 
         author: 'Pak', 
         price:`${700} ${"$"}`,
+        stock: 3,
     },
     {
         id:4,
@@ -26,6 +29,7 @@ const productos = [
         artworkName: 'Marbled Sky', 
         author: 'Jonathan Byrer', 
         price:`${700} ${"$"}`,
+        stock: 1,
     },
     {
         id:5,
@@ -33,6 +37,7 @@ const productos = [
         artworkName: 'Getjide', 
         author: 'Unordered List', 
         price:`${2000} ${"$"}`,
+        stock: 10,
     },
     {
         id:6,
@@ -40,6 +45,7 @@ const productos = [
         artworkName: 'Sunflower', 
         author: 'Space Master', 
         price:`${820} ${"$"}`,
+        stock: 4,
     },
     {
         id:7,
@@ -47,6 +53,7 @@ const productos = [
         artworkName: 'Red Light District', 
         author: 'OSF', 
         price:`${550} ${"$"}`,
+        stock: 1,
     },
     {
         id:8,
@@ -54,6 +61,7 @@ const productos = [
         artworkName: 'Subscapes', 
         author: 'Matt Des Lauriers', 
         price:`${650} ${"$"}`,
+        stock: 1,
     },
 ];
 

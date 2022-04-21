@@ -46,6 +46,7 @@ main::before {
 
 
 .main-title{
+    z-index: 10;
     user-select: none;
 
     z-index:5;
@@ -55,39 +56,59 @@ main::before {
 
     justify-self: center;
     align-self: end;
-    margin-bottom: -40px;
-    
+    margin-top: 7rem;
+
     font-family: 'Bevan', cursive;
     font-size: 5.5rem;
     color: azure;
 }
 
+.main-title-verse{
+    z-index: 9;
+    user-select: none;
+
+    position:absolute;
+    z-index:4;
+
+    top:2.7rem;
+
+    justify-self: center;
+
+    
+    font-family: 'Bevan', cursive;
+    font-size: 12rem;
+    color: #EB67B6;
+    filter: blur(2px);
+
+    font-style: italic;
+}
 
 .main-btn-container{
     z-index: 6;
     cursor: pointer;
 
+
     margin-top:-10px;
-    align-self: flex-start;
+    align-self: center;
     justify-self: center;
 
 
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row: 3 / 5;
 
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
 
-    
+    line-height: 3.8rem;
 
     font-family: 'Poppins', sans-serif;
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 800;
 }
 
 .login-selector{
-    color: rgb(255, 255, 255);
+    color:  rgba(18, 12, 33, .8);
     transition: color .2s ease-in;
 }
 .login-selector:hover{
@@ -95,9 +116,9 @@ main::before {
 }
 
 .register-selector{
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 300;
-    color: rgb(100, 211, 72);
+    color: rgba(18, 12, 33, .8);
     transition: color .2s ease-in;
 }
 .register-selector:hover{
@@ -151,67 +172,28 @@ main::before {
 }
 
 .bg__wave-5{
+    z-index: 0;
     position: absolute;
     width: 150%;
     height: 85%;
 
     left: -19rem;
-    bottom:-100px;
+    bottom:-150px;
     user-select: none;
 
     color: #EB67B6;
+
+    filter:blur(2px);
 }
-
-
-
-
-
 
 /* SPECIAL */
 .oculto{
     display: none;
 }
 
-
-
-
-/* BTN DARKMODE */
-
-.btn-darkmode{
-    z-index: 10;
-    position: fixed;
-    
-
-    margin-left: 8rem;
-    margin-top: 2.8rem;
-
-    display: grid;
-    grid-template-columns: 80px;
-    grid-template-rows: 32px;
-
-}
-
-
-.btn-darkmodeFix{
-    align-self: center;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    overflow: hidden;
-}
-
-
-.btn-darkmodeSelectGreen{
-    margin-top: 1.2px;
-    margin-left: 2px;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-
-
-.btn-darkmodeSelectPink{
-    margin-top: 1.2px;
-    margin-left: 1.35rem;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    
+.logo{
+    z-index: 0;
+    position: absolute;
+    color: #EB67B6;
+    filter: blur(15px);
 }
