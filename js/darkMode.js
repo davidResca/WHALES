@@ -18,13 +18,14 @@ function darkMode(){
     $btnLoginColor.style.color = 'azure';
     $btnNewColor.style.color = 'azure';
     $main.style.backgroundColor = 'white';
-    $burgerColor.style.color = 'black';
+    $burgerColor.style.color = '#00FF85';
     $darkmodeSelectPink.style.color = '#00FF85';
-    $darkmodeSelectGreen.style.color = 'black';
+    $darkmodeSelectGreen.style.color = '#EB67B6';
     $darkmodeContainerFix.style.color = 'black';
+    productContainer.style.backgroundColor = 'black';
     
     $navLinks.forEach((element)=>{
-        element.style.color = 'rgba(18, 12, 33, .8)';
+        element.style.color = '#00FF85';
     })
 
     return "dark";
@@ -39,6 +40,7 @@ function lightMode(){
     $darkmodeSelectPink.style.color = '#EB67B6';
     $darkmodeSelectGreen.style.color = '#00FF85';
     $darkmodeContainerFix.style.color = '#fff';
+    productContainer.style.backgroundColor = '#EB67B6';
 
     $navLinks.forEach((element)=>{
         element.style.color = 'azure';
