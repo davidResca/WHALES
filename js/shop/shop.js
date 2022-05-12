@@ -1,37 +1,6 @@
 
 
-const productContainer = document.querySelector('#product-container');
 
-// TARJETAS DE PRODUCTOS
-const mostrarProductos = ()=>{
-    productos.forEach((element)=>{
-        crearCard(element);
-    });
-};
-const crearCard = (element)=>{
-    const productCard = document.createElement('article');
-    productCard.setAttribute('class', 'product-card');
-    productCard.innerHTML =`<div>
-                                <img class="prod-img" width="150px" src="${element?.img}" alt="${element.artworkName}"/>
-                            </div>
-                            <div class="prod-description">
-                                <h5 class="artwork-name">${element?.artworkName}</h5>
-                                <h5 class="author">${element?.author}</h5>
-                                <p class = "price">${element?.price} stock: ${element?.stock}</p>
-                                <p id="btn-buy" class="buy">buy now</p>
-                            </div>`;
-        productContainer.appendChild(productCard);  
-    agregarEventoACard(productCard, element);
-}
-
-const agregarEventoACard= (productCard, element)=>{
-    productCard.addEventListener('click', ()=>{
-        //console.log(element?.id);
-        verificarStockProducto(element);
-    })
-}
-
-mostrarProductos();
 
 // CARRITO
 const carritoArray = [];
@@ -46,7 +15,7 @@ const verificarStockProducto = (element)=>{
 function agregarProductoAlCarrito(element){
     carritoArray.push(element);
     element.stock = element.stock-1;
-    localStorage.setItem('carro', JSON.stringify(carritoArray));
+    
     notificarAgregarProductoAlCarrito();
 }
 
@@ -78,9 +47,7 @@ $btnCarrito.addEventListener('click', ()=>{
     mostrarCarrito();
 })
 
-function mostrarCarrito(){
-    menuCarrito.classList.toggle('oculto');
-}
+
 
 
 

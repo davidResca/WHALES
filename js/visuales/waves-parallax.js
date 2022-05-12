@@ -87,7 +87,7 @@ const actualizarCadaElemento = ()=>{
         };
         
         // Aplicar Valores al elemento HTML. (estilos css dinámicos);
-        wave.style.transform = /* 'scale('+waveSalida.escala+') */ 'translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
+        wave.style.transform ='translate('+waveSalida.x+'px,'+waveSalida.y+'px)';
     
     })
 

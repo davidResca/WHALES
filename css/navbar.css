@@ -13,6 +13,7 @@ header{
 }
 
 .nav{
+    user-select: none;
     position:relative;
     z-index: 1;
     height: 100%;
@@ -117,11 +118,3 @@ header{
 }
 
 
-/* BTN CART */
-
-#btn-cart{
-    position: absolute;
-    right:3rem;
-    top: 2.3rem;
-    color: white;
-}

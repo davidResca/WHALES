@@ -29,7 +29,7 @@ main{
 
 /*CRT FILTER*/
 
-main::before {
+body::before {
     z-index: 10;
     content: " ";
     display: block;
@@ -38,18 +38,17 @@ main::before {
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgb(0, 0, 0, .06) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 2px, 3px 100%;
+/*     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgb(0, 0, 0, .06) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+ */    background-size: 100% 4px, 6px 100%;
     pointer-events: none;
     box-shadow: inset 16px 16px 40px rgba(0, 0, 0, 0.637),inset -16px -16px 40px rgba(0, 0, 0, 0.637);
 }
 
 
 .main-title{
-    z-index: 10;
+    z-index: 4;
     user-select: none;
 
-    z-index:5;
     grid-column: 1 / 4;
     grid-row: 1 / 2;
 
@@ -64,11 +63,10 @@ main::before {
 }
 
 .main-title-verse{
-    z-index: 9;
+    z-index: 3;
     user-select: none;
 
     position:absolute;
-    z-index:4;
 
     top:2.7rem;
 
@@ -84,9 +82,9 @@ main::before {
 }
 
 .main-btn-container{
-    z-index: 6;
+    z-index: 3;
     cursor: pointer;
-
+    user-select: none;
 
     margin-top:-10px;
     align-self: center;
@@ -172,7 +170,7 @@ main::before {
 }
 
 .bg__wave-5{
-    z-index: 0;
+    z-index: 1;
     position: absolute;
     width: 150%;
     height: 85%;
@@ -192,8 +190,25 @@ main::before {
 }
 
 .logo{
-    z-index: 0;
+    z-index: 1;
     position: absolute;
     color: #EB67B6;
     filter: blur(15px);
+}
+
+.mostrar-data-nomics{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    color: rgb(105, 221, 130);
+    padding: 5px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
 }

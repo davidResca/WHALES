@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
     <!-- TOASTIFY -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/carrito.css">
     <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="stylesheet" href="./css/previewProducto.css">
     <title>WHALES</title>
 </head>
 <body>
@@ -43,56 +45,24 @@
             </div>
         </nav>
         <!-- CARRITO -->
-        <aside id="carrito-container">
+        <div id="carrito-container">
             <div class="btn-carrito parallax-wave" id="btn-cart" data-depth="1.4">
                 <svg width="50" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 0C11.193 0 0 11.193 0 25s11.193 25 25 25 25-11.193 25-25S38.807 0 25 0ZM12.4 10.562l4.449 1.398c.589.193.981.74 1.05 1.3l.25 2.45 20.148 2.25c.865.167 1.473.948 1.351 1.751l-1.25 7.05c-.16.737-.77 1.242-1.45 1.25H19.049l-.35 2h16.997c.89.031 1.54.708 1.55 1.498-.036.902-.763 1.492-1.55 1.502H16.898c-.949-.079-1.645-.83-1.499-1.749l.8-4.4-1.252-12.302L11.5 13.46c-.4-.133-.7-.384-.9-.75a1.577 1.577 0 0 1 .65-2.051 1.42 1.42 0 0 1 1.15-.098Zm6.774 23.312a2.344 2.344 0 1 1 0 4.688 2.344 2.344 0 0 1 0-4.688Zm13.758 0a2.344 2.344 0 1 1 0 4.688 2.344 2.344 0 0 1 0-4.688Z" fill="currentColor"/></svg>
             </div>
-            <div id="carrito-menu" class="oculto">
-
-            </div>
-        </aside>
-        
+            <aside id="carrito-menu">
+            </aside>
+        </div>
     </header>
     <!-- MAIN -->
     <main id="main">
-        <span class="main-title parallax-wave" data-depth="1.9">WHALE</span>
-        <span class="main-title-verse parallax-wave" data-depth=".5">VERSE</span>
+
+        <!-- Titles -->
+        <p class="main-title parallax-wave" data-depth=".8">WHALE</p>
+        <p class="main-title-verse parallax-wave" data-depth=".2">VERSE</p>
+        
         <!-- ETH animado c/script bouncingETH.js -->
         <svg class="logo" width="216" height="272" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m214.578 138.835-103.125 131.25a4.693 4.693 0 0 1-3.633 1.725 4.69 4.69 0 0 1-3.632-1.725L1.063 138.835a4.571 4.571 0 0 1 0-5.86L104.188 1.725A4.676 4.676 0 0 1 107.82 0a4.686 4.686 0 0 1 3.633 1.725l103.125 131.25a4.569 4.569 0 0 1 0 5.86Zm-102.07 114.726 91.055-115.898-91.055-41.368v157.266Zm-9.375-157.266-91.055 41.368 91.055 115.898V96.295Zm0-10.312V18.249L20.281 123.717l82.852-37.734Zm9.375 0 82.851 37.734-82.851-105.468v67.734Z" fill="currentColor"/></svg>
-        
-        <!-- btns login/New USER -->
-        <div class="main-btn-container parallax-wave" data-depth="1.4">
-            <!-- <!-- BOTON LOGIN -->
-            <div id="btn-login" class="btn-login">
-                <p class="login-selector">LOGIN</p>
-            </div>
-            <!-- BOTON REGISTER -->
-            <div id="btn-new-user" class="btn-new-user">
-                <div class="register-selector">NEW?</div>
-            </div>
-        </div>
-        <!-- LOGIN CONTAINER -->
-        <div id="login-container" class="login-container oculto">
-            <form id="form-login">
-                <div id="btn-close-login" class="btn-close-login"><p>x</p></div>
-                <input type="email" placeholder="your mail" id="login-email" class="form__input" required>
-                <input type="password" placeholder="your pass" id="login-password" class="form__input" required>
-                <img src="./assets/PNG/loginRegister/form-circles-fengShui.png" alt="random stuff circles" class="form-circles">
-                <button type="submit" id="btn-login" class="form__button">enter</button>
-            </form>
-        </div>
-        <!-- REGISTER CONTAINER -->
-        <div id="register-container" class="register-container oculto">
-            <form id="form-register">
-                <input name="userName" type="text" placeholder="enter name" id="register-username" class="form__input">
-                <input name="email" type="email" placeholder="enter mail" id="register-email" class="form__input">
-                <input name="password" type="password" placeholder="enter pass" id="register-password" class="form__input">
-                <input name="confirm-password" type="password" placeholder="confirm pass" id="confirm-password" class="form__input">
-                <div id="btn-close-register" class="btn-close-register"><p>x</p></div>
-                <img src="./assets/PNG/loginRegister/form-circles-fengShui.png" alt="random stuff circles" class="form-circles">
-                <button type="submit" id="btn-register" class="form__button">register</button>
-            </form>
-        </div>
+
         <!-- WAVES-->
         <div id="waves-container" class="waves-container">
             <!-- <img src="./assets/PNG/Waves--1.png" alt="smoothie waves" id="wave1" class="bg__wave-1 parallax-wave" data-depth="-.5">
@@ -101,9 +71,24 @@
             <img src="./assets/PNG/Waves--4.png" alt="smoothie waves" id="wave4" class="bg__wave-4 parallax-wave" data-depth="0.7"> -->
             <svg id="wave5" class="bg__wave-5 parallax-wave" data-depth="0" width="1568" height="515" viewBox="0 0 1568 515" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m1653 0-73 75.663c-73 74.444-220 224.55-366 203.804C1067 257.5 921 64.68 774 64.68c-146 0-292 192.82-439 268.483-146 74.444-293 31.73-366 9.764l-73-20.747V515h1757V0Z" fill="currentColor"/></svg>
         </div>
+
+        <!-- Data Api -->
+        <article class="mostrar-data-nomics">
+        </article>
+        
     </main>
     <!-- GALLERY -->
     <section id="product-container" class="product-container">
+        
+        <section id="preview-producto" class="oculto">
+            <h5 id="btn-close-prevProduct" class="btn-close-prevProduct">
+                <i class="fa-solid fa-xmark"></i>
+            </h5>
+            <article id="producto">
+            <!-- Inyección Js Previsualizar elemento -->
+            </article>
+        </section>
+
     </section>
 
 
@@ -112,30 +97,34 @@
 
 
 
-
     <!--//////////////SCRIPT ZONE//////////////-->
-    <!-- Formularios de registro y login -->
-
 
     <!-- PRODUCT DATA -->
-    <script src="./js/productData.js"></script>
-    <!-- USER DATA -->
-    <script src="./js/userData.js"></script>
-    <!-- script Navbar -->
-    <script src="./js/navbar.js"></script>
-    <!-- GALLERY & CARRITO-->
-    <script src="./js/shop.js"></script>
-    <!-- "DARKMODE" -->
-    <script src="./js/darkMode.js"></script>
-    <!-- Parallax & scroll script -->
-    <script src="./js/waves-parallax.js"></script>
-    <!-- Jugando un poco -->
-    <script src="./js/bouncingETH.js"></script>
-    <!-- Toastify -->
-    <script src="./js/toastify.js"></script>
+    <script src="./js/data/productData.js"></script>
     
-    <!-- USER DATA -->
-    <!-- <script src="./js/userData.js"></script> -->
+    <!-- PRODUCTOS, SHOP Y CARRITO-->
+    <script src="./js/shop/tarjetaProducto.js"></script>
+    <script src="./js/shop/previewProducto.js"></script>
+    <script src="./js/shop/shop.js"></script>
+    
+    <!-- VISUALES -->
+    <script src="./js/visuales/navbar.js"></script>
+    <!-- "DARKMODE" -->
+    <script src="./js/visuales/darkMode.js"></script>
+    <!-- Parallax & scroll script -->
+    <script src="./js/visuales/waves-parallax.js"></script>
+    <!-- Animacion main background -->
+    <script src="./js/visuales/bouncingETH.js"></script>
+    <!-- Animacion Carrito -->
+    <script src="./js/visuales/animacionCarrito.js"></script>
+    <!-- LIBRERIAS -->
+    <!-- Toastify -->
+    <script src="./js/libs/toastify.js"></script>
+
+    <!-- APIs -->
+    <!-- cryptocurrency -->
+    <script src="./js/APIs/cryptocurrencyApi.js"></script>
+
     
 </body>
 </html>
