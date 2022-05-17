@@ -18,12 +18,9 @@ function cerrarPreview(){
     $previewProducto.classList.add('oculto');
 }
 
-
 function crearPrevisualizacion($producto, element){
     $producto.innerHTML = "";
-
     mostrarProductoSeleccionado($producto, element);
-    //console.log(productor.length);
 }
 
 function mostrarProductoSeleccionado($producto, element){
@@ -35,10 +32,22 @@ function mostrarProductoSeleccionado($producto, element){
                                 <div class="product-info">
                                     <h5 class="product-name">${element?.artworkName}</h5>
                                     <h5 class="product-author">${element?.author}</h5>
+                                    <h5 class="product-stock">stock: ${element?.stock} </h5>
                                     <h5 class="product-price">${element?.price} </h5>
+                                    <div id="btnComprar">Add to Cart</div>
                                 </div>
                                 `;
+        agregarEventoComprar(element);
     } else {
         $producto.innerHTML = "";
     }
 }
+
+function agregarEventoComprar(element){
+    const btnComprar = document.querySelector('#btnComprar');
+
+    btnComprar.addEventListener('click', ()=>{
+        verificarStockProducto(element);
+    })
+}
+

@@ -3,7 +3,7 @@
     position: relative;
 }   
 
-#btn-cart{
+#btn-carrito{
     z-index: 10;
     position: absolute;
     right:3rem;
@@ -17,7 +17,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 500px;
+    width: 100vw;
     height: 100vh;
     background-color: black;
     padding: 2rem;
@@ -44,12 +44,42 @@
     object-fit: fill;
 }
 
+#productos-carrito{
+    margin-top: 10rem;
+    margin-left: 25px;
+}
 
-/*
-g class="carro-img" s
-class="carro-titulo">
-class="carro-autor">$
-class="carro-cantidad
-class="carro-precio">
+.producto{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 2rem;
+}
 
+.producto > div {
+    margin: 0 1rem;
+}
+
+.cart-img{
+    height: 80px;
+    width: 80px;
+    margin: 5px 15px;
+}
+
+.cart-nombre{
+    padding: 5px;
+    background-color: white;
+    color: black
+}
+
+
+
+/* 
+<img class="cart-img"
+<div class="cart-nombre
+<div class="cart-precio
+<div class="cart-cantidad                           
+`sad 
 */

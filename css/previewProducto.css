@@ -1,7 +1,7 @@
 #preview-producto{
+    position: fixed;
     user-select: none;
     z-index: 10;
-    position: fixed;
     background-color: rgb(0, 0, 0);
     background-image: url("https://media4.giphy.com/media/DIouyQ9xdybpAmRUVI/giphy.gif?cid=ecf05e47kszfise708hd37fnoc1umgoujg6l6wwgipzcih55&rid=giphy.gif&ct=g");
     background-size: cover;
@@ -63,3 +63,15 @@
     color: red;
 }
 
+#btnComprar{
+    font-size: 2rem;
+    color: black;
+    font-family: 'Poppins';
+    width: 100%;
+    padding: 5px;
+    background-color: #cabec5;
+    text-align: center;
+    margin-top: auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

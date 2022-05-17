@@ -7,8 +7,6 @@ const mostrarProductos = ()=>{
     });
 };
 
-
-
 const crearCard = (element)=>{
     const productCard = document.createElement('article');
     productCard.setAttribute('class', 'product-card');
@@ -20,17 +18,15 @@ const crearCard = (element)=>{
                                 <h5 class="artwork-name">${element?.artworkName}</h5>
                                 <h5 class="author">${element?.author}</h5>
                                 <h5 class="price">${element?.price} </h5>   
-                            </div>`;
+                            </div>
+                            `;
     productContainer.appendChild(productCard);  
     agregarEventoACard(productCard, element);
 }
 
-
 const agregarEventoACard= (productCard, element)=>{
     productCard.addEventListener('click', ()=>{
-        
         previsualizarProducto(element);
-        // verificarStockProducto(element);
     })
 } 
 

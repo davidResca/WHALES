@@ -184,11 +184,6 @@ body::before {
     filter:blur(2px);
 }
 
-/* SPECIAL */
-.oculto{
-    display: none;
-}
-
 .logo{
     z-index: 1;
     position: absolute;
