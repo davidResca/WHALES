@@ -12,9 +12,17 @@ $btnRemoverCarrito.addEventListener('click', ()=>{
 
 
 function limpiarCarrito(){
-    console.log(carrito.productos.splice(0,carrito.length));
-    contenedorCarrito.innerHTML="";
+    contenedorCarrito.innerHTML = carrito.productos.splice(0,carrito.length);
     localStorage.removeItem('CARRITO');
+
+    let prod = carrito.productos.map((element)=>element.cantidad)
+
+
+    console.log(prod);
+
+    productos.forEach((element)=>{
+        element.stock = element.stock //Acá sumaría las cantidades pareadas con los id de productos, no llegué;
+    })
 
     calcularTotalCarrito();
 }
