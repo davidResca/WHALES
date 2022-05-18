@@ -22,15 +22,12 @@ const verificarStockProducto = (element)=>{
     if (stock > 0){
         agregarProductoAlCarrito(element.id);
         notificarAgregarProductoAlCarrito(); 
-        actualizarStockProducto(stock);
+        element.stock -= 1;
     } else {
         notificarFaltanteStock(element);
     }
 }
 
-function actualizarStockProducto(stock){
-    stock -= 1;
-}
 
 function agregarProductoAlCarrito(element){
     const products = productos.map(el=>el.id);
@@ -52,11 +49,10 @@ function actualizarCarrito(){
                             <div class="cart-nombre">${produ?.artworkName}</div>
                             <div id="cart-precio" class="cart-precio">${parseFloat(produ?.price) * producto?.cantidad} ETH</div>
                             <div class="cart-cantidad"> items: ${producto?.cantidad}</div>                            
-                            <div class="cart-remover">remove</div>                            
                             `;
         contenedorCarrito.appendChild(nodoLi);
-        agregarEventoBtnRemover();
     })  
+
     calcularTotalCarrito();
     carrito.guardar();
 }

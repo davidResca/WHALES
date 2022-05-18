@@ -12,7 +12,11 @@ $btnRemoverCarrito.addEventListener('click', ()=>{
 
 
 function limpiarCarrito(){
+    console.log(carrito.productos.splice(0,carrito.length));
+    contenedorCarrito.innerHTML="";
     localStorage.removeItem('CARRITO');
+
+    calcularTotalCarrito();
 }
 
 
