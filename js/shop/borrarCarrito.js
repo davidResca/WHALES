@@ -1,7 +1,11 @@
+function agregarEventoBtnRemover(){
+    const $btnRemoveProducto = document.querySelector('.cart-remover');
+    $btnRemoveProducto.addEventListener('click', ()=>{
+        borrarProducto();
+    })
+}
+
 const $btnRemoverCarrito = document.querySelector('.remove-cart');
-const $btnRemove = document.querySelector('.cart-remover');
-
-
 $btnRemoverCarrito.addEventListener('click', ()=>{
     limpiarCarrito();
 })
@@ -9,13 +13,10 @@ $btnRemoverCarrito.addEventListener('click', ()=>{
 
 function limpiarCarrito(){
     localStorage.removeItem('CARRITO');
-
 }
 
 
-$btnRemove.addEventListener('click', ()=>{
-    borrarProducto();
-})
+
 
 
 function borrarProducto(){

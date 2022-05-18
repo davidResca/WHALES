@@ -18,16 +18,18 @@ else{
 //verificar stock y agregar productos a carrito
 const verificarStockProducto = (element)=>{
     const {stock} = element;
-
-    let cantidad = document.querySelector('.cart-cantidad');
     
     if (stock > 0){
         agregarProductoAlCarrito(element.id);
         notificarAgregarProductoAlCarrito(); 
-        element.stock -= 1;
+        actualizarStockProducto(stock);
     } else {
-        notificarFaltanteStock();
+        notificarFaltanteStock(element);
     }
+}
+
+function actualizarStockProducto(stock){
+    stock -= 1;
 }
 
 function agregarProductoAlCarrito(element){
@@ -53,7 +55,9 @@ function actualizarCarrito(){
                             <div class="cart-remover">remove</div>                            
                             `;
         contenedorCarrito.appendChild(nodoLi);
+        agregarEventoBtnRemover();
     })  
+    calcularTotalCarrito();
     carrito.guardar();
 }
 
