@@ -1,5 +1,6 @@
 const $carritoCompras = document.querySelector('#carrito-menu');
 const $btnCarrito = document.querySelector('#btn-carrito');
+const $btnCloseCart = document.querySelector('.btn-close-cart');
 
 $btnCarrito.addEventListener('click', ()=>{
     mostrarCarrito();

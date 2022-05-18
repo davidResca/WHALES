@@ -10,6 +10,15 @@
     top: 2.3rem;
     color: white;
 }
+.btn-close-cart{
+    position: absolute;
+    right:30px;
+    top: 85px;
+    display: flex;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    color: white;
+}
 
 #carrito-menu{
     z-index: 0;
