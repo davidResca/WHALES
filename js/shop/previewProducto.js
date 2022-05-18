@@ -12,10 +12,10 @@ $btnClosePrevProduct.addEventListener('click', ()=>{
     cerrarPreview();
 })
 function abrirPreview(){
-    $previewProducto.classList.remove('oculto');
+    mostrarOcultarPrevProducto();
 }
 function cerrarPreview(){
-    $previewProducto.classList.add('oculto');
+    mostrarOcultarPrevProducto();
 }
 
 function crearPrevisualizacion($producto, element){

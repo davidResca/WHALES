@@ -1,14 +1,13 @@
 class Carrito {
 
     constructor(productos){
-        this.productos=productos;
+        this.productos = productos;
     }
 
     addProducto(producto){
-        
-        let mapped = this.productos.map(element=>element.producto);
+        const mapped = this.productos.map(element=>element.producto);
 
-        let enCarrito = mapped.find(element=>element.id===producto.id);
+        const enCarrito = mapped.find(element=>element.id===producto.id);
 
         if(!enCarrito){
             this.productos.push({cantidad:1,producto});
@@ -18,10 +17,9 @@ class Carrito {
             let index = indexed.indexOf(producto.id);
             this.productos[index].cantidad+=1;
         }
+        calcularTotalCarrito();
     }
-
-    guardar()
-    {
+    guardar(){
         localStorage.setItem("CARRITO",JSON.stringify(this.productos));
     }
 }

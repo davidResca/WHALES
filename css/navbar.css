@@ -21,6 +21,7 @@ header{
 }
 
 .nav__burger{
+    cursor: pointer;
     position: absolute;
     display: flex;
     margin-left: 45px;

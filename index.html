@@ -51,14 +51,18 @@
                 <svg width="50" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 0C11.193 0 0 11.193 0 25s11.193 25 25 25 25-11.193 25-25S38.807 0 25 0ZM12.4 10.562l4.449 1.398c.589.193.981.74 1.05 1.3l.25 2.45 20.148 2.25c.865.167 1.473.948 1.351 1.751l-1.25 7.05c-.16.737-.77 1.242-1.45 1.25H19.049l-.35 2h16.997c.89.031 1.54.708 1.55 1.498-.036.902-.763 1.492-1.55 1.502H16.898c-.949-.079-1.645-.83-1.499-1.749l.8-4.4-1.252-12.302L11.5 13.46c-.4-.133-.7-.384-.9-.75a1.577 1.577 0 0 1 .65-2.051 1.42 1.42 0 0 1 1.15-.098Zm6.774 23.312a2.344 2.344 0 1 1 0 4.688 2.344 2.344 0 0 1 0-4.688Zm13.758 0a2.344 2.344 0 1 1 0 4.688 2.344 2.344 0 0 1 0-4.688Z" fill="currentColor"/></svg>
             </div>
             <div id="carrito-menu">
+                <h2 class="carrito-title">shopping cart</h2>
                 <aside id="productos-carrito">
                 </aside>
+                <div class="cart-button-container">
+                    <h3 class="carrito-total"></h3>
+                    <h3 class="remove-cart">remove cart</h3>
+                </div>
             </div>
-        </div>
+        </div>       
     </header>
     <!-- MAIN -->
     <main id="main">
-
         <!-- Titles -->
         <p class="main-title parallax-wave" data-depth=".8">WHALE</p>
         <p class="main-title-verse parallax-wave" data-depth=".2">VERSE</p>
@@ -66,41 +70,16 @@
         <!-- ETH animado c/script bouncingETH.js -->
         <svg class="logo" width="216" height="272" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m214.578 138.835-103.125 131.25a4.693 4.693 0 0 1-3.633 1.725 4.69 4.69 0 0 1-3.632-1.725L1.063 138.835a4.571 4.571 0 0 1 0-5.86L104.188 1.725A4.676 4.676 0 0 1 107.82 0a4.686 4.686 0 0 1 3.633 1.725l103.125 131.25a4.569 4.569 0 0 1 0 5.86Zm-102.07 114.726 91.055-115.898-91.055-41.368v157.266Zm-9.375-157.266-91.055 41.368 91.055 115.898V96.295Zm0-10.312V18.249L20.281 123.717l82.852-37.734Zm9.375 0 82.851 37.734-82.851-105.468v67.734Z" fill="currentColor"/></svg>
         
-        <!-- btns login/New USER -->
-        <div class="main-btn-container parallax-wave" data-depth=".7">
-            <!-- <!-- BOTON LOGIN -->
-            <div id="btn-login" class="btn-login">
-                <p class="login-selector">LOGIN</p>
+        <!-- Previsualizar producto -->
+        <aside id="preview-producto">
+            <div id="btn-close-prevProduct" class="btn-close-prevProduct">
+                <h2 class="btn-close-text">CLOSE</h2>
+                <i class="fa-solid fa-xmark"></i>
             </div>
-            <!-- BOTON REGISTER -->
-            <div id="btn-new-user" class="btn-new-user">
-                <div class="register-selector">NEW?</div>
-            </div>
-        </div>
-        
-        <!-- LOGIN CONTAINER -->
-        <div id="login-container" class="login-container oculto">
-            <form id="form-login">
-                <div id="btn-close-login" class="btn-close-login"><p>x</p></div>
-                <input type="email" placeholder="your mail" id="login-email" class="form__input" required>
-                <input type="password" placeholder="your pass" id="login-password" class="form__input" required>
-                <img src="./assets/PNG/loginRegister/form-circles-fengShui.png" alt="random stuff circles" class="form-circles">
-                <button type="submit" id="btn-login" class="form__button">enter</button>
-            </form>
-        </div>
-
-        <!-- REGISTER CONTAINER -->
-        <div id="register-container" class="register-container oculto">
-            <form id="form-register">
-                <input name="userName" type="text" placeholder="enter name" id="register-username" class="form__input">
-                <input name="email" type="email" placeholder="enter mail" id="register-email" class="form__input">
-                <input name="password" type="password" placeholder="enter pass" id="register-password" class="form__input">
-                <input name="confirm-password" type="password" placeholder="confirm pass" id="confirm-password" class="form__input">
-                <div id="btn-close-register" class="btn-close-register"><p>x</p></div>
-                <img src="./assets/PNG/loginRegister/form-circles-fengShui.png" alt="random stuff circles" class="form-circles">
-                <button type="submit" id="btn-register" class="form__button">register</button>
-            </form>
-        </div>
+            <article id="producto">
+            <!-- Inyección Js Previsualizar elemento -->
+            </article>
+        </aside>
 
         <!-- WAVES-->
         <div id="waves-container" class="waves-container">
@@ -118,15 +97,6 @@
     </main>
     <!-- GALLERY -->
     <section id="product-container" class="product-container">
-        <section id="preview-producto" class="oculto">
-            <h5 id="btn-close-prevProduct" class="btn-close-prevProduct">
-                <i class="fa-solid fa-xmark"></i>
-            </h5>
-            <article id="producto">
-            <!-- Inyección Js Previsualizar elemento -->
-            </article>
-        </section>
-
     </section>
 
 
@@ -136,18 +106,17 @@
 
 
     <!--//////////////SCRIPT ZONE//////////////-->
-
     <!-- PRODUCT DATA -->
     <script src="./js/data/productData.js"></script>
-    <!-- USER DATA -->
-    <script src="./js/data/userData.js"></script>
     
     <!-- PRODUCTOS, SHOP Y CARRITO-->
     <script src="./js/shop/carrito.class.js"></script>
     <script src="./js/shop/carrito.js"></script>
     <script src="./js/shop/tarjetaProducto.js"></script>
     <script src="./js/shop/previewProducto.js"></script>
+    <script src="./js/shop/carritoTotal.js"></script>
     <script src="./js/shop/shop.js"></script>
+    <script src="./js/shop/borrarCarrito.js"></script>
     
     <!-- VISUALES -->
     <script src="./js/visuales/navbar.js"></script>
@@ -159,6 +128,8 @@
     <script src="./js/visuales/bouncingETH.js"></script>
     <!-- Animacion Carrito -->
     <script src="./js/visuales/animacionCarrito.js"></script>
+    <!-- Animacion Previsualizar Producto -->
+    <script src="./js/visuales/animacionPrevisualizarProducto.js"></script>
     <!-- LIBRERIAS -->
     <!-- Toastify -->
     <script src="./js/libs/toastify.js"></script>

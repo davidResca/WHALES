@@ -1,9 +1,9 @@
-
 #carrito-container{
     position: relative;
 }   
 
 #btn-carrito{
+    cursor: pointer;
     z-index: 10;
     position: absolute;
     right:3rem;
@@ -11,16 +11,21 @@
     color: white;
 }
 
-
 #carrito-menu{
     z-index: 0;
     position: absolute;
-    right: 0;
-    top: 0;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    right: 0;
+    top: 0;
     padding: 2rem;
+    background-image: url('https://media2.giphy.com/media/geHG6zLJWNcNW/giphy.gif?cid=790b76116cf6e46abd4143c3b2c7df7e1da0eb2c8a7f3766&rid=giphy.gif&ct=g');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: right;
+    background-color: black;
     overflow-y: scroll;
 
     transform: translateX(100%);
@@ -29,57 +34,125 @@
 
 .prodEnCarro{
     margin-top: 2rem;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
     font-size: 1rem;
-    padding: 5px;
+    color: white;
 }
 
 .carro-img{
     z-index: 10;
-    width: 5rem;
     max-height: 5rem;
+    width: 5rem;
     object-fit: fill;
 }
 
 #productos-carrito{
-    margin-top: 10rem;
+    margin-top: 1rem;
     margin-left: 25px;
+    user-select: none;
 }
 
 .producto{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    color: white;
+    justify-content: start;
     font-family: 'Poppins';
     font-size: 2rem;
+    color: white;
 }
 
 .producto > div {
     margin: 0 1rem;
 }
 
+
 .cart-img{
+    margin: 5px 15px;
     height: 80px;
     width: 80px;
-    margin: 5px 15px;
 }
 
 .cart-nombre{
     padding: 5px;
+    color: black;
     background-color: white;
-    color: black
 }
 
+.carrito-title{
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: white;
+}
 
+.cart-precio{
+    color: red;
+    font-size: 3rem;
+    font-weight: normal;
+}
 
-/* 
-<img class="cart-img"
-<div class="cart-nombre
-<div class="cart-precio
-<div class="cart-cantidad                           
-`sad 
-*/
+.cart-cantidad{
+    text-align: center;
+    color: #00FF85;
+    text-transform: uppercase;
+    background-color: white;
+    width: 150px;
+    border-radius: 1px;
+}
+
+.cart-button-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.carrito-total {   
+    margin-left: 2.5rem;
+    text-align: start;
+    font-family: 'Poppins';
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #00000047;
+    background: url("https://media4.giphy.com/media/A2dofHeZe5O37KVZua/giphy.gif?cid=ecf05e47zxi2f4tzib0a55ubskwpu9oa7y6fsv6zn38ahp1z&rid=giphy.gif&ct=g");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    
+}
+
+.remove-cart{
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: black;
+    background-color: white;
+    text-decoration: underline;
+    padding: 5px;
+
+    transition: .2s;
+}
+
+.remove-cart:hover{
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}
+
+.cart-remover{
+    cursor: pointer;
+    color: black;
+    font-family: 'Poppins';
+    font-size: 2rem;
+    background-color: white;
+    text-transform: uppercase;
+}
