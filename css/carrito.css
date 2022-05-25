@@ -115,17 +115,21 @@
     border-radius: 1px;
 }
 
-.fa-caret-up{
+.agregar-item{
     transition: .2s;
+    color: white;
+    width: 25px;
 }
-.fa-caret-up:hover{
+.agregar-item:hover{
     color:red;
     transform: scale(1.2);
 }
-.fa-caret-down{
+.quitar-item{
     transition: .2s;
+    color: white;
+    width: 25px;
 }
-.fa-caret-down:hover{
+.quitar-item:hover{
     color: red;
     transform: scale(1.2);
 }

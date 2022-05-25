@@ -62,8 +62,8 @@ function actualizarCarrito(carrito){
                             <div id="cart-precio" class="cart-precio">${(parseFloat(producto?.precio) * producto?.cantidad).toFixed(3)} ETH</div>
                             <div class="cart-cantidad"> items: ${producto?.cantidad}</div>
                             <div class="btns-cambiar-cantidad">
-                                <i data-id="${producto?.id}" id="aumentar-item" class="fa-solid fa-caret-up"></i>                            
-                                <i data-id="${producto?.id}" id="disminuir-item" class="fa-solid fa-caret-down"></i>
+                                <img src="../assets/BTN/agregar-item.png" alt="agregar producto" data-id="${producto?.id}" class="agregar-item">
+                                <img src="../assets/BTN/quitar-item.png" alt="quitar producto" data-id="${producto?.id}" class="quitar-item">
                             </div>                            
                             `;
         itemsEnCarro.appendChild(nodoLi);
@@ -79,8 +79,26 @@ function actualizarCarrito(carrito){
 // botones para cambiar cantidades de items en carrito
 items.addEventListener('click', e=>{
     btnAccion(e);
-    e.stopPropagation();
 })
 
-const btnAccion = e => { console.log(e.target)}
+const btnAccion = e => {
+    if(e.target.classList.contains('agregar-item')){
+        const producto = carrito[e.target.dataset.id];
+        producto.cantidad++
+        carrito[e.target.dataset.id] = {... producto};
+        //console.log(carrito[e.target.dataset.id]);
+        actualizarCarrito(carrito);
+    }   
+    if(e.target.classList.contains('quitar-item')){
+        const producto = carrito[e.target.dataset.id];
+        producto.cantidad--;
+        if(producto.cantidad <= 0){
+            delete carrito[e.target.dataset.id];
+        }
+        actualizarCarrito(carrito);
+        // carrito[e.target.dataset.id] = {... producto};
+        //console.log(carrito[e.target.dataset.id]);
+    }   
 
+    e.stopPropagation();
+}
