@@ -18,7 +18,6 @@ const collapsarMenu = ()=>{
 
 collapsarMenu();
 
-
 window.addEventListener('click', (e)=>{
     if (!document.querySelector('.nav__list--item').contains(e.target) && (!document.querySelector('#nav-button').contains(e.target))){
         const intervalo = 30;

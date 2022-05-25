@@ -6,7 +6,6 @@ const $main = document.querySelector('main');
 const $burgerColor = document.querySelector('.nav__burger');
 const $darkmodeContainerFix = document.querySelector('.btn-darkmodeFix')
 const $navLinks = document.querySelectorAll('.nav-link');
-
 const $btnDarkMode = document.querySelector('#btn-darkmode');
 
 
@@ -18,7 +17,7 @@ function darkMode(){
     $darkmodeSelectPink.style.color = '#00FF85';
     $darkmodeSelectGreen.style.color = '#EB67B6';
     $darkmodeContainerFix.style.color = 'black';
-    productContainer.style.backgroundColor = 'black';
+    contenedorProductos.style.backgroundColor = 'black';
     
     $navLinks.forEach((element)=>{
         element.style.color = '#00FF85';
@@ -34,7 +33,7 @@ function lightMode(){
     $darkmodeSelectPink.style.color = '#EB67B6';
     $darkmodeSelectGreen.style.color = '#00FF85';
     $darkmodeContainerFix.style.color = '#fff';
-    productContainer.style.backgroundColor = '#EB67B6';
+    contenedorProductos.style.backgroundColor = '#EB67B6';
 
     $navLinks.forEach((element)=>{
         element.style.color = 'azure';

@@ -96,6 +96,7 @@
     background-color: white;
 }
 #btnComprar{
+    user-select: none;
     margin-top: 1rem;
     padding: 5px;
     width:100%;

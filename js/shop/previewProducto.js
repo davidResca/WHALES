@@ -1,53 +1,49 @@
 const $previewProducto = document.querySelector('#preview-producto');
 const $btnClosePrevProduct = document.querySelector('#btn-close-prevProduct');
 const $producto = document.querySelector('#producto');
+const $prevProducto = document.querySelector('#preview-producto');
 
-
-function previsualizarProducto(element){
-    abrirPreview();
-    crearPrevisualizacion($producto, element);
-}
 
 $btnClosePrevProduct.addEventListener('click', ()=>{
-    cerrarPreview();
-})
-function abrirPreview(){
     mostrarOcultarPrevProducto();
-}
-function cerrarPreview(){
-    mostrarOcultarPrevProducto();
-}
+});
 
-function crearPrevisualizacion($producto, element){
+//logica
+function previsualizarProducto(producto){
     $producto.innerHTML = "";
-    mostrarProductoSeleccionado($producto, element);
-}
-
-function mostrarProductoSeleccionado($producto, element){
     if($producto.innerHTML === ""){
         $producto.innerHTML =  `
                                 <div class="product-img-container">
-                                    <img class="product-img" src="${element?.img}"/>
+                                    <img class="product-img" src="${producto?.img}"/>
                                 </div>
                                 <div class="product-info">
-                                    <h5 class="product-name">${element?.artworkName}</h5>
-                                    <h5 class="product-author">${element?.author}</h5>
-                                    <h5 class="product-stock">stock: ${element?.stock} </h5>
-                                    <h5 class="product-price">${element?.price} </h5>
-                                    <div id="btnComprar">Add to Cart</div>
+                                    <h5 class="product-name">${producto?.nombre}</h5>
+                                    <h5 class="product-author">${producto?.autor}</h5>
+                                    <h5 class="product-price">${producto?.precio} ETH</h5>
+                                    <div id="btnComprar" data-id=${producto?.id}>Add to Cart</div>
                                 </div>
                                 `;
-        agregarEventoComprar(element);
+        agregarEventoComprar(producto);
     } else {
         $producto.innerHTML = "";
     }
 }
 
-function agregarEventoComprar(element){
-    const btnComprar = document.querySelector('#btnComprar');
+function mostrarOcultarPrevProducto(){
+    ($prevProducto.style.transform === 'translateX(-100%)') ? $prevProducto.style.transform = 'translateX(0)' : $prevProducto.style.transform = 'translateX(-100%)';
+}
 
-    btnComprar.addEventListener('click', ()=>{
-        verificarStockProducto(element);
+function agregarEventoComprar(producto){
+    const btnComprar = document.querySelector('#btnComprar');
+    btnComprar.addEventListener('click', e =>{
+        cargarCarrito(producto);
     })
 }
+
+mostrarOcultarPrevProducto();
+
+
+
+
+
 

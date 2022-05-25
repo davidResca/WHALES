@@ -115,6 +115,21 @@
     border-radius: 1px;
 }
 
+.fa-caret-up{
+    transition: .2s;
+}
+.fa-caret-up:hover{
+    color:red;
+    transform: scale(1.2);
+}
+.fa-caret-down{
+    transition: .2s;
+}
+.fa-caret-down:hover{
+    color: red;
+    transform: scale(1.2);
+}
+
 .cart-button-container{
     display: flex;
     justify-content: space-between;
@@ -137,7 +152,8 @@
     
 }
 
-.remove-cart{
+#remove-cart{
+    user-select: none;
     cursor: pointer;
     text-align: center;
     font-family: 'Poppins';

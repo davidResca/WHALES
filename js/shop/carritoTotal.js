@@ -12,7 +12,7 @@ function calcularTotalCarrito(){
 
 function imprimirTotalCarrito(totalCarrito){
 
-    $totalCarrito.innerHTML = `total : ${totalCarrito} ETH`;
+    $totalCarrito.innerHTML = `total : ${(totalCarrito).toFixed(4)} ETH`;
 }
 
 calcularTotalCarrito();
