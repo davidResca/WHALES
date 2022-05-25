@@ -5,7 +5,6 @@ const contenedorCarrito = document.querySelector('#productos-carrito');
 //verificar stock y agregar productos a carrito
 // const verificarStockProducto = (element)=>{
 //     const {stock} = element;
-    
 //     if (stock > 0){
 //         agregarProductoAlCarrito(element.id);
 //         notificarAgregarProductoAlCarrito(); 
