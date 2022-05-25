@@ -1,19 +1,5 @@
 const contenedorCarrito = document.querySelector('#productos-carrito');
 
-/** OBTENER IDs => CANTIDADES Y STOCK Y RESTARLOS SEGUN EL ID DE PRODUCTO */
-
-//verificar stock y agregar productos a carrito
-// const verificarStockProducto = (element)=>{
-//     const {stock} = element;
-//     if (stock > 0){
-//         agregarProductoAlCarrito(element.id);
-//         notificarAgregarProductoAlCarrito(); 
-//         element.stock -= 1;
-//     } else {
-//         notificarFaltanteStock(element);
-//     }
-// }
-
 let carrito = {};
 
 const cargarCarrito = object =>{
@@ -64,20 +50,23 @@ function actualizarCarrito(carrito){
 
 // botones para cambiar cantidades de items en carrito
 items.addEventListener('click', e=>{
-    btnAccion(e);
+    btnsAgregarQuitarProductosDelCarrito(e);
 })
 
-const btnAccion = e => {
+
+const btnsAgregarQuitarProductosDelCarrito = e => {
     if(e.target.classList.contains('agregar-item')){
         const producto = carrito[e.target.dataset.id];
         producto.cantidad++
         carrito[e.target.dataset.id] = {... producto};
         //console.log(carrito[e.target.dataset.id]);
         actualizarCarrito(carrito);
+        notificarAgregarProductoAlCarrito();
     }   
     if(e.target.classList.contains('quitar-item')){
         const producto = carrito[e.target.dataset.id];
         producto.cantidad--;
+        notificarRemoverProductoDelCarrito();
         if(producto.cantidad <= 0){
             delete carrito[e.target.dataset.id];
         }

@@ -37,6 +37,7 @@ function agregarEventoComprar(producto){
     const btnComprar = document.querySelector('#btnComprar');
     btnComprar.addEventListener('click', e =>{
         cargarCarrito(producto);
+        notificarAgregarProductoAlCarrito();
     })
 }
 

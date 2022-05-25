@@ -59,16 +59,20 @@
 }
 
 #productos-carrito{
+    display: flex;
+    flex-direction: column;
+    align-content: start;
     margin-top: 1rem;
     margin-left: 25px;
     user-select: none;
 }
 
 .producto{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
+    justify-items: start;
     font-family: 'Poppins';
     font-size: 2rem;
     color: white;
@@ -142,6 +146,7 @@
 }
 
 .carrito-total {   
+    user-select: none;
     margin-left: 2.5rem;
     text-align: start;
     font-family: 'Poppins';
@@ -153,7 +158,6 @@
     background-size: cover;
     background-position: center;
     -webkit-background-clip: text;
-    
 }
 
 #remove-cart{

@@ -6,7 +6,8 @@ $btnRemoverProducto.addEventListener('click', ()=>{
 
 function borrarProductos(){ 
     carrito = {};
-    actualizarCarrito(carrito)
+    actualizarCarrito(carrito);
+    notificarBorrarCarrito();
 }
 
 
