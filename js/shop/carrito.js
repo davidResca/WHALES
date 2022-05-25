@@ -1,17 +1,4 @@
 const contenedorCarrito = document.querySelector('#productos-carrito');
-// const data = JSON.parse(localStorage.getItem('CARRITO'));
-
-// let carrito = new Carrito([]);
-
-// if(!data){
-//     carrito = new Carrito([]);
-// }
-// else{
-//     carrito = new Carrito(data);
-
-//     actualizarCarrito();
-// }
-
 
 /** OBTENER IDs => CANTIDADES Y STOCK Y RESTARLOS SEGUN EL ID DE PRODUCTO */
 
@@ -72,7 +59,7 @@ function actualizarCarrito(carrito){
     items.appendChild(itemsEnCarro)
     
     calcularTotalCarrito();
-    //carrito.guardar();
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 };
 
 

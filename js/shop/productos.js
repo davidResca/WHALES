@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     fetchData();
+    if(localStorage.getItem('carrito')){
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        actualizarCarrito(carrito);
+    }
 })
 
 const fetchData = async () => {
