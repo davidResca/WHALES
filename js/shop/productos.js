@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-    fetchData();
+    let productData = '../js/data/productData.json';
+    
+    fetch(productData)
+    .then((response)=>response.json())
+    .then((data)=>pintarCards(data))
+
     if(localStorage.getItem('carrito')){
         carrito = JSON.parse(localStorage.getItem('carrito'))
         actualizarCarrito(carrito);
     }
 })
 
-const fetchData = async () => {
+
+
+
+/* const fetchData = async () => {
     try {
         const res = await fetch('../js/data/productData.json');
         const data = await res.json();
@@ -15,7 +23,7 @@ const fetchData = async () => {
     } catch(error){
         console.log(error);
     }
-}
+} */
 
 const contenedorProductos = document.querySelector('#product-container');
 const cards = document.createDocumentFragment();
